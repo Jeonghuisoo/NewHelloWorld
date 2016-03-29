@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Login_Form</title>
+	
+	<script>
+		function send() {
+			if(document.frm.txtId.value == ""){
+				alert('ID를 확인해 주세요');
+				document.frm.txtId.focus();
+				return;
+			}
+			
+			if(document.frm.txtPw.value == ""){
+				alert('Pw를 확인해 주세요');
+				document.frm.txtPw.focus();
+				return;
+			}
+			document.frm.submit();
+		}
+	</script>
+	<style>
+		div {
+			background-color: gray;
+			color: white;
+			display: inline-block;
+		}
+		.Frame{
+			display:inline-block;
+			position:absolute;
+			left: 30%; top: 30%;
+		}
+		.btn {
+			background-color: white;
+			border-radius: 10px 10px 10px 10px;
+		}
+		.btn:hover{
+			background-color: blue;
+			color : white;
+		}
+	</style>
+</head>
+<body>
+	<fieldset class="Frame">
+	<div>
+	<form name="frm" action="Test_Main.html" method="get">  
+	<fieldset><legend>로그인</legend>
+		<input type="text" name="txtId" id="txtId" placeholder="아이디"
+			style="width: 150px;" /> 
+		<input class="btn" type= "button" value= "확 인" onClick="send(); "onClick="location.href='Test_Main.html';" /><br>
+		
+		<input type="password" name="txtPw" id="txtPw" placeholder="비밀번호"
+			style="width: 150px;" />
+		<input class="btn" type= "reset" value= "취 소" /><br>
+		
+		<label for="cbSave">ID저장</label>
+		<input type= "checkbox" name="cbSave" id="cbSave" value="" />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input class="btn" type= "button" value= "회원가입" onClick="location.href='Test_Join.html';" /><br>
+	</div>
+	</fieldset>
+	</form>
+</body>
+</html>

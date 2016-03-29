@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Join_form</title>
+	
+	<script>
+		function filterNumber(event){
+			var code = event.keyCod;
+
+			if(code > 47 && code < 58){
+				return;
+			}
+			if(code == 110 || code == 190){
+				return;
+			}
+			if(event.ctrlKey || event.altKey){
+				return;
+			}
+			if( code == 9 || code == 36 || code == 35 || code ==37 ||
+			     code == 39 || code == 8 || code == 46 ||){
+				return;
+			}
+			event.preventDefault();
+
+		function check() { 
+			if(document.frm.txtId.value == ""){
+				alert('ID를 입력하지 않았습니다.');
+				document.frm.txtId.focus();
+				return;
+			}
+			if(document.frm.txtId.value == "abcd"){
+				alert('중복된 ID가 존재합니다.');
+				document.frm.txtId.focus();
+				return;
+			}
+			else{
+				alert('중복확인이 완료되었습니다.');
+				document.frm.txtPw.focus();
+				return;
+			}
+		}
+
+		function send() {
+			if(document.frm.txtId.value == ""){
+				alert('필수입력 사항이 입력되지 않았습니다!');
+				document.frm.txtId.focus();
+				return;
+			}
+			if(document.frm.txtPw.value == ""){
+				alert('필수입력 사항이 입력되지 않았습니다!');
+				document.frm.txtPw.focus();
+				return;
+			}
+			if(document.frm.txtPw.value == ""){
+				alert('필수입력 사항이 입력되지 않았습니다!');
+				document.frm.txtName.focus();
+				return;
+			}
+			else{
+				document.frm.submit();
+			}
+		}
+	</script>
+	<style>
+		div {
+			background-color: gray;
+			color: white;
+			display: inline-block;
+		}
+		.Frame{
+			display:inline-block;
+			position:absolute;
+			left: 30%; top: 10%;
+		}
+		.btn {
+			background-color: white;
+			border-radius: 10px 10px 10px 10px;
+		}
+		.btn:hover{
+			background-color: blue;
+			color : white;
+		}
+	</style>
+</head>
+<body>
+	<fieldset class="Frame">
+	<div>
+	<hr>	
+	<form name="frm" action="Test_Main.html" method="get">
+  
+	<fieldset><legend>필수입력</legend>
+		<input type="text" name="txtId" id="txtId" placeholder="아이디"
+			style="width: 150px;" />
+		<input class="btn" type= "button" value= "중복확인" onClick="check();" /><br> 	
+		<input type="password" name="txtPw" id="txtPw" placeholder="비밀번호"
+			style="width: 150px;" /><br>
+		<input type="Name" name="txtName" id="txtName" placeholder="이름"
+			style="width: 150px;" /><br>
+		<select>
+			<option value="010">010</option>
+		</select>
+		-<input tpe="text" id="mobile1" name="mobile1"
+				onkeydown="filterNumber(event);" style="width: 75px;">
+		-<input tpe="text" id="mobile2" name="mobile2"
+				onkeydown="filterNumber(event);" style="width: 75px;">
+	</fieldset>
+	<fieldset><legend>선택입력</legend>
+		<input type="text" name="txtEmail" id="txtEmail" placeholder="이메일 ID"
+			style="width: 150px;" />
+		<select name="selCate" id="selCate">
+		      <optgroup label="이메일">
+			<option value="0">gmail.com</option>
+			<option value="1">naver.com</option>
+			<option value="2">daum.net</option>
+		      </optgroup>
+		</select><br> 	
+		<input type="password" name="txtAdd" id="txtAdd" placeholder="주소"
+			style="width: 258px;" />
+	</fieldset>
+	<fieldset><legend>가입인사</legend>
+		<textarea cols="34" rows="15"></textarea>
+	</fieldset><br>
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;
+	<input class="btn" type="button" value="가입완료" onClick="send();" onClick="location.href='Test_Main.html';" />
+	<hr>
+	</div>
+	</fieldset>
+	</form>
+</body>
+</html>
